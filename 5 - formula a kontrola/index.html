@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Formular</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css"/>
+	<style>
+		.container{
+			width:400px;
+			max-width: 100%;
+		}
+		.form-control{
+			margin-bottom: 10px;
+			padding: 20px;
+			position: relative;
+		}
+		.form-control label{
+			display: inline-block;
+			margin-bottom: 5px;
+		}
+		.form-control input{
+			border: 2px solid;
+			border-radius: 4px;
+			display: block;
+			padding: 10px;
+			font-size: 14px;
+			width: 100%;
+		}
+		.form-control i, .form-control-radio i{
+			position: absolute;
+			top: 55px;
+			right: 10px;
+			visibility: hidden;
+		}
+		.form-control.error i{
+			visibility: visible;
+			color: red;
+		}
+		.form-control.success input{
+			border-color: lightgreen;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<form id="form" class="form" action="http://www.fpv.umb.sk/" onsubmit="return valid()">
+			<div class="form-control">
+				<label>Meno</label>
+				<input type="text" id="meno" />
+				<i class="fas fa-exclamation"></i>
+			</div>
+			<div class="form-control">
+				<label>Priezvisko</label>
+				<input type="text" id="priezvisko" />
+				<i class="fas fa-exclamation"></i>
+			</div>
+			<div class="form-control">
+				<label>Datum narodenia</label>
+				<input type="text" id="datumNarodenia" />
+				<i class="fas fa-exclamation"></i>
+			</div>
+			<div class="form-control">
+				<label>E-mail</label>
+				<input type="text" id="email" />
+				<i class="fas fa-exclamation"></i>
+			</div>
+			<div class="form-control-radio">
+				<input type="radio" id="muz" name="pohlavie" value="muz">
+				<label for="muz">Muž</label>
+				<input type="radio" id="zena" name="pohlavie" value="zena">
+				<label for="zena">Žena</label>
+				<i class="fas fa-exclamation"></i>
+			</div>
+			<div class="form-control">
+				<label>Heslo</label>
+				<input type="password" id="heslo" />
+				<i class="fas fa-exclamation"></i>
+			</div>
+			<div class="form-control">
+				<label>Heslo2</label>
+				<input type="password" id="heslo2" />
+				<i class="fas fa-exclamation"></i>
+			</div>
+			<input type="submit" name="" value="Odošli">
+			<button type="reset" name="button">Zmaž</button>
+		</form>
+	</div>
+	<script>
+		const form = document.getElementById('form');
+		const meno = document.getElementById('meno');
+		const priezvisko = document.getElementById('priezvisko');
+		const datumNarodenia = document.getElementById('datumNarodenia');
+		const email = document.getElementById('email');
+		const heslo = document.getElementById('heslo');
+		const heslo2 = document.getElementById('heslo2');
+		const muz = document.getElementById('muz');
+		const zena = document.getElementById('zena');
+
+		form.addEventListener('submit', (e) => {
+			e.preventDefault;
+			valid();
+		})
+
+
+		function valid(){
+			const menoHodnota = meno.value.trim();
+			const	priezviskoHodnota = priezvisko.value.trim();
+			const	datumNarodeniaHodnota = datumNarodenia.value.trim();
+			const	emailHodnota = email.value.trim();
+			const	hesloHodnota = heslo.value.trim();
+			const	heslo2Hodnota = heslo2.value.trim();
+			const muzHodnota = muz.value;
+			const zenaHodnota = zena.value;
+
+			if(menoHodnota === ''){
+				errorExclamation(meno);
+			}else {
+				success(meno);
+			}
+
+			if(priezviskoHodnota === ''){
+				errorExclamation(priezvisko);
+			}else {
+				success(priezvisko);
+			}
+
+			if(datumNarodeniaHodnota === ''){
+				errorExclamation(datumNarodenia);
+			}else {
+				success(datumNarodenia);
+			}
+
+			if(emailHodnota === ''){
+				errorExclamation(email);
+			}else if (!emailCheck(emailHodnota)) {
+				errorExclamation(email);
+			}else {
+				success(email);
+			}
+
+			if(muzHodnota === '' && zenaHodnota===''){
+				errorExclamationRadio(zena);
+				errorExclamationRadio(muz);
+			}
+
+			if(hesloHodnota === ''){
+				errorExclamation(heslo);
+			}else {
+				success(heslo);
+			}
+
+			if(heslo2Hodnota=== ''){
+				errorExclamation(heslo2);
+			}else if(heslo2Hodnota != hesloHodnota){
+				errorExclamation(heslo2);
+			}else {
+				success(heslo2);
+			}
+
+			if(menoHodnota === ''){return false;
+			}else if(priezviskoHodnota === ''){return false;
+			}else if(datumNarodeniaHodnota === ''){return false;
+			}else	if(emailHodnota === ''){return false;
+			}else if (!emailCheck(emailHodnota)){return false;
+			}else if(hesloHodnota === ''){return false;
+			}else	if(heslo2Hodnota=== ''){return false;
+			}else if(heslo2Hodnota != hesloHodnota){return false;
+			}else{
+				 return true;
+			}
+		}
+
+		function errorExclamation(input){
+			const formControl = input.parentElement;
+			formControl.className = 'form-control error';
+		}
+
+		function success(input){
+			const formControl = input.parentElement;
+			formControl.className = 'form-control success';
+		}
+
+		function emailCheck(email){
+			const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+			return re.test(email);
+		}
+	</script>
+</body>
+</html>

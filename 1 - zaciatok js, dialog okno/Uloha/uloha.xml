@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="uloha.xsl"?>
+<turnaj>
+  <hrac>
+    <meno>Adam</meno>
+    <priezvisko>Novy</priezvisko>
+    <narodnost>slovenska</narodnost>
+    <datumnarodenia>1.2.1999</datumnarodenia>
+    <klub>dukla</klub>
+    <cislo>10</cislo>
+  </hrac>
+  <hrac>
+    <meno>Igor</meno>
+    <priezvisko>Dubak</priezvisko>
+    <narodnost>ceska</narodnost>
+    <datumnarodenia>1.10.2001</datumnarodenia>
+    <klub>Zvolen</klub>
+    <cislo>2</cislo>
+  </hrac>
+</turnaj>

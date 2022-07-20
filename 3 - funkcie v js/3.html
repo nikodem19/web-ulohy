@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang = "en" dir = "ltr">
+  <head>
+    <meta charset = "utf-8">
+    <title>3. uloha</title>
+  </head>
+  <body>
+    <script type = "text/javascript">
+      var pole = new Array(4);
+      for(let i = 0; i < pole.length; i++){
+        pole[i] = Math.floor(Math.random() * 19 + 1);
+      }
+      pole.sort((a,b) => a - b);
+      alert(pole);
+    </script>
+  </body>
+</html>

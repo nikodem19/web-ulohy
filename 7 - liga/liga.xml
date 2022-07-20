@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="uloha.xsl"?>
+<liga>
+  <hrac>
+    <meno>Fero</meno>
+    <narodnost>slovenska</narodnost>
+    <klub>SKP BB</klub>
+  </hrac>
+  <hrac>
+    <meno>Juraj</meno>
+    <narodnost>juhoafricka</narodnost>
+    <klub>BK Lucenec</klub>
+  </hrac>
+  <hrac>
+    <meno>Ignac</meno>
+    <narodnost>slovenska</narodnost>
+    <klub>Inter Bratislava</klub>
+  </hrac>
+  <hrac>
+    <meno>Luigi</meno>
+    <narodnost>talianska</narodnost>
+    <klub>Bk Kosice</klub>
+  </hrac>
+</liga>

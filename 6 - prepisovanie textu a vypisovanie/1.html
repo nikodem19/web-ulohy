@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>1</title>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js "></script>
+    <style>
+      .in{
+        background: grey;
+      }
+      .out{
+        background: white;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      Meno: <input type="text" name="meno"><br>
+      Priezvisko: <input type="text" name="priezvisko">
+    </div>
+    <script>
+      $("input").focusin(function(){
+        $(this).attr('class','in');
+      });
+      $("input").focusout(function(){
+        $(this).attr('class','out');
+      });
+    </script>
+  </body>
+</html>

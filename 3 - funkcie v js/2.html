@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang = "en" dir = "ltr">
+  <head>
+    <meta charset = "utf-8">
+    <title>2. uloha</title>
+  </head>
+  <body>
+    <script type = "text/javascript">
+      var sutaz = new Object();
+      sutaz.meno = "Janko";
+      sutaz.priezvisko = "Hrasko";
+      sutaz.skola = "UMB";
+
+      var sutaz2 = new Object;
+      sutaz2.meno = "Durko";
+      sutaz2.priezvisko = "Mrkvička";
+      sutaz2.skola = sutaz.skola;
+      var cas = new Date();
+      var dnes = cas.toLocaleDateString();
+      alert("Na dnešnej sútaži - " + dnes + " sa zúčastnili:\n" + sutaz.meno + " " + sutaz.priezvisko + " - " + sutaz.skola + "\n" + sutaz2.meno + " " + sutaz2.priezvisko + " - " + sutaz2.skola);
+    </script>
+  </body>
+</html>

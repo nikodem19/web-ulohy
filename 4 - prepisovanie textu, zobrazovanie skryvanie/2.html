@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>2. príklad</title>
+    <script>
+      function changeColor(){
+        document.getElementById("nadpis").style.color = "red";
+      }
+      function showParagraph(){
+        var x = document.getElementById("paragraf");
+        if (x.style.display === "none") {
+          x.style.display = "block";
+        } else{
+          x.style.display = "none";
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <h1 id = "nadpis" onmouseover = "changeColor()">Tento text sa prefarbí</h1>
+    <p id = paragraf>Tento text sa skryje/zobrazí po stlačení tlačídla.</p>
+    <button type = "button" onclick = "showParagraph()">Tlačidlo</button>
+  </body>
+</html>
